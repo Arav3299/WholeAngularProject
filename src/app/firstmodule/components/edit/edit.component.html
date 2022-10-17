@@ -1,0 +1,92 @@
+<div class="container-fluid">
+
+    <div class="col-md-4 offset-md-4">
+        <div class="pt-5"></div>
+        <div class="pt-5"></div>
+        <form focusInvalidInput [formGroup]="editform" (ngSubmit)="submit()">
+
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-dark"> Form</h3>
+                    <div class="form-group">
+                        <label for="">Id </label>
+                        <input  id="id" type="text" [class.is-invalid]="id?.invalid && submitted" formControlName="id" class="form-control" placeholder="">
+                        <span class="text-light"
+                                *ngIf="(id && id.touched || submitted) && id?.errors?.['required']">
+                                Id is required<span class="text-danger">*</span>
+                            </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Title </label>
+                        <input type="text" [class.is-invalid]="title?.invalid && submitted" formControlName="title" minlength="4" class="form-control" placeholder="" id="title">
+                        <span *ngIf="title?.invalid && (submitted || title?.touched)"
+                            class="text-light"> 
+                          <span *ngIf="title?.errors?.['required']">
+                            Title is required.
+                          </span>
+                          <span *ngIf="title?.errors?.['minlength']">
+                            Title must be at least 4 characters long.
+                          </span>
+                          <span *ngIf="title?.errors?.['forbiddenName']">
+                            Title cannot be Binladen.
+                          </span>
+                        
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Brand </label>
+                        <input type="text" [class.is-invalid]="brand?.invalid && submitted" formControlName="brand"  class="form-control"
+                            placeholder="">
+                            <span class="text-light"
+                            *ngIf="(registerFormControl?.['brand']?.touched || submitted) && registerFormControl?.['brand']?.errors?.['required']">
+                            Brand is required<span class="text-danger">*</span>
+                        </span>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="">Rating </label>
+                        <input type="text" [class.is-invalid]="rating?.invalid && submitted" formControlName="rating"   class="form-control"
+                            placeholder=" ">
+                            <span class="text-light"
+                            *ngIf="(registerFormControl?.['rating']?.touched || submitted) && registerFormControl?.['rating']?.errors?.['required']">
+                            Rating is required<span class="text-danger">*</span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Category </label>
+                        <input id="n" type="text" [class.is-invalid]="category?.invalid && submitted" formControlName="category" class="form-control"
+                            placeholder=" ">
+                            <span class="text-light"
+                            *ngIf="(registerFormControl?.['category']?.touched || submitted) && registerFormControl?.['category']?.errors?.['required']">
+                            Category is required<span class="text-danger">*</span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Price </label>
+                        <input id="n" type="text" [class.is-invalid]="price?.invalid && submitted" formControlName="price" class="form-control"
+                            placeholder=" ">
+                            <span class="text-light"
+                                *ngIf="(registerFormControl?.['price']?.touched || submitted) && registerFormControl?.['price']?.errors?.['required']">
+                                Price is required<span class="text-danger">*</span>
+                            </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Discount </label>
+                        <input id="n" type="text" [class.is-invalid]="discount?.invalid && submitted" formControlName="discount"
+                            class="form-control" placeholder=" ">
+                            <span class="text-light"
+                            *ngIf="(discount && discount.touched || submitted) && discount?.errors?.['required']">
+                            Discount is required<span class="text-danger">*</span>
+                        </span>
+                    </div>
+
+                    <div class="pt-3"></div>
+                    <div class="text-center">
+                        <button type="submit"  class="btn btn-success   text-center">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="pt-5"></div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+ 
+<app-shared [name]="admin"></app-shared>
+<div >    
+    <div class="row text-center" style="margin-top:10px;">    
+      <div class="col-sm-12 btn btn-success">    
+        Employee Detail's   
+      </div>    
+    </div>    
+    
+  </div>    
+     
+  
+<div>  
+  
+    <table class="table" *ngIf="users">  
+      <thead class="dark">  
+        <tr>
+          <th></th>  
+          <th>Id</th>  
+          <th>Name</th>  
+          <th>Age</th>  
+          <th>Gender</th>  
+          <th>Phone</th>  
+          <th>Email</th>
+           
+          <th></th>
+        </tr>  
+      </thead>  
+      <tbody>
+         
+        <tr *ngFor="let user of users.users; index as i"  [class.red]="color && currentRow==i+1" > 
+          <td></td> 
+          <td>{{user.id}}</td>  
+          <td>{{user.firstName}}</td>  
+          <td>{{user.age}}</td>
+          <td>{{user.gender}}</td>  
+          <td>{{user.phone}}</td>  
+          <td>{{user.email}}</td> 
+          
+           
+          <td>
+            <button class="btn btn-primary newbutton" (click)="gotosecondedit(user)">Edit</button>
+             
+          </td>
+        </tr>  
+      </tbody>  
+    </table>  
+  </div>  
+ 
